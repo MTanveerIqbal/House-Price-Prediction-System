@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ai-dark: #020617;
+  --color-ai-card: #0f172a;
+  --color-ai-accent: #3b82f6;
+  --color-ai-glow: #60a5fa;
+  --color-ai-text: #f8fafc;
+  --color-ai-muted: #64748b;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-ai-dark text-ai-text antialiased selection:bg-ai-accent selection:text-white;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .btn-premium {
+    @apply relative overflow-hidden px-6 py-3 bg-gradient-to-r from-ai-accent to-blue-600 rounded-xl font-semibold text-white shadow-lg shadow-ai-accent/20 transition-all duration-300 hover:scale-[1.02] active:scale-95;
+  }
+
+  .glass-panel {
+    @apply bg-ai-card/40 backdrop-blur-xl border border-white/5 rounded-3xl shadow-2xl;
+  }
+
+  .input-modern {
+    @apply w-full bg-ai-dark/50 border border-white/10 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-ai-accent/50 focus:border-ai-accent transition-all duration-300 placeholder:text-gray-600 text-white;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ai-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
